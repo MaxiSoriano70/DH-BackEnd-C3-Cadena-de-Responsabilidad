@@ -1,0 +1,27 @@
+@startuml
+class Producto{
+    - lote : int
+    - peso : double
+    - envasado : Eenvasado
+}
+
+AnalistaDeCalidad --> AnalistaDeCalidad
+AnalistaDeCalidad .l.>Producto
+abstract class AnalistaDeCalidad{
+    +controlar la calidad(Producto) : Producto
+}
+
+class AnalizarLote{
+    +controlar la calidad(Producto) : Producto
+}
+class AnalizarPeso{
+    +controlar la calidad(Producto) : Producto
+}
+class AnalizarEnvase{
+    +controlar la calidad(Producto) : Producto
+}
+
+AnalizarLote -u-|> AnalistaDeCalidad
+AnalizarPeso -u-|> AnalistaDeCalidad
+AnalizarEnvase -u-|> AnalistaDeCalidad
+@enduml
